@@ -1,6 +1,13 @@
 import pickle
 from flask import Flask, render_template
 
+albums_top50 = pickle.load(open('pickle_files/albums_top50.pkl', 'rb'))
+artists_top50 = pickle.load(open('pickle_files/artists_top50.pkl', 'rb'))
+tracks_top50 = pickle.load(open('pickle_files/tracks_top50.pkl', 'rb'))
+genres_top50 = pickle.load(open('pickle_files/genres_top50.pkl', 'rb'))
+similarity_score = pickle.load(open('pickle_files/similarity_score.pkl', 'rb'))
+df = pickle.load(open('pickle_files/df.pkl', 'rb'))
+
 def recommend(track_name, similarity_score, df, top_n=5):
     data = []
     track_indices = df[df['track_name'] == track_name].index
