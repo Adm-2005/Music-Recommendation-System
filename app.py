@@ -34,5 +34,21 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route('/top_artists')
+def top_artists():
+    return render_template("top_artists.html")
+
+@app.route('/top_tracks')
+def top_tracks():
+    return render_template("top_tracks.html")
+
+@app.route('/top_albums')
+def top_albums():
+    return render_template("top_albums.html")
+
+@app.route('/top_genres')
+def top_genres():
+    return render_template("top_genres.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
